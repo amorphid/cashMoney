@@ -1,5 +1,5 @@
 function testSuperDeadIsAFunction () {
-  return typeof superDead === "function"
+  return typeof superDead === "function";
 }
 
 console.log(testThatSuperDeadIsAFunction());
