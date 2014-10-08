@@ -2,4 +2,4 @@ function testSuperDeadIsAFunction () {
   return typeof superDead === "function";
 }
 
-console.log(testThatSuperDeadIsAFunction());
+console.log(testSuperDeadIsAFunction());
