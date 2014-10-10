@@ -1,32 +1,18 @@
-var fs = require("fs");
+(function () {
+  var fs = require("fs");
+  var vm = require("vm");
 
-var files = {
-  lib:  [],
-  test: []
-};
+  var files   = [];
+  var sandbox = vm.createContext(this);
 
-fs.readdirSync("./lib").forEach(function (file) {
-  var type = file.split(".").pop();
+  ["./lib/", "./test/"].forEach(function (directory) {
+    fs.readdirSync(directory).forEach(function (file) {
+      files.push(directory + file);
+    });
+  });
 
-  if(type === "js"){
-    files.lib.push("./lib/" + file);
+  for (var i in files) {
+    var file = fs.readFileSync(files[i]);
+    vm.runInContext(file, sandbox);
   };
-});
-
-fs.readdirSync("./test").forEach(function (file) {
-  var type = file.split(".").pop();
-
-  if(type === "js"){
-    files.test.push("./test/" + file);
-  };
-});
-
-for (var i = 0; i < files.lib.length; i += 1 ) {
-  var file = fs.readFileSync(files.lib[i]);
-  eval(file.toString());
-}
-
-for (var i = 0; i < files.test.length; i += 1 ) {
-  var file = fs.readFileSync(files.test[i]);
-  eval(file.toString());
-}
+}());
