@@ -2,8 +2,8 @@
   var fs = require("fs");
   var vm = require("vm");
 
-  var files   = [];
   var sandbox = vm.createContext(this);
+  var files   = [];
 
   ["./lib/", "./test/"].forEach(function (directory) {
     fs.readdirSync(directory).forEach(function (file) {

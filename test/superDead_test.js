@@ -1,10 +1,7 @@
-function testSuperDeadIsAFunction () {
+X_X("superDead is a function", function () {
   return typeof superDead === "function";
-};
+});
 
-function testX_XequalsSuperDead () {
+X_X("X_X is equal to superDead", function () {
   return X_X === superDead;
-};
-
-console.log(testSuperDeadIsAFunction());
-console.log(testX_XequalsSuperDead());
+});
