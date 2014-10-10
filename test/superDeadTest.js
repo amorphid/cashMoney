@@ -16,3 +16,10 @@ X_X("X_X", function () {
     // });
   });
 });
+
+// X_X("X_X", function () {
+//   X_X(".shouldNotThrowError", function () {
+//     X_X("when function() is undefined") {
+//     });
+//   });
+// });
