@@ -9,4 +9,6 @@
       vm.runInContext(file, sandbox);
     });
   });
+
+  sandbox.X_X.runTests()
 }());
