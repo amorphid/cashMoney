@@ -1,3 +1,3 @@
-X_X("superDead is a function", function () {
-  return typeof superDead === "function";
+X_X("X_X.shouldThrowError is a function", function () {
+  return typeof X_X.shouldThrowError === "function"
 });
