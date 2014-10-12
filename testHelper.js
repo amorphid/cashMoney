@@ -54,5 +54,5 @@
     runFiles(files);
   });
 
-  sandbox.X_X.runTests()
+  vm.runInContext("X_X.runTests()", sandbox)
 }());
