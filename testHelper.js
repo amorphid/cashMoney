@@ -57,5 +57,5 @@
   vm.runInContext("X_X.tests = X_X.stack.slice(0);", sandbox);
   vm.runInContext("X_X.runTests(X_X.stack);", sandbox);
   vm.runInContext("console.log(X_X.tests)", sandbox);
-  vm.runInContext("console.log(X_X(function(){}).shouldThrowError)", sandbox);
+  // vm.runInContext("console.log(X_X(123).equals(123))", sandbox);
 }());
