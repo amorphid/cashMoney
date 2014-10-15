@@ -11,4 +11,9 @@ X_X("superDead", function () {
     funktion = function () {  X_X() };
     return X_X(funktion).shouldThrowError();
   });
+
+  X_X("throws error when called with 3+ arguments",function () {
+    funktion = function () {  X_X(1, 2, 3) };
+    return X_X(funktion).shouldThrowError();
+  });
 });
