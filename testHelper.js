@@ -3,14 +3,18 @@
     var split = file.split("/");
 
     if (split[1] === "lib" && split.length === 3) {
-      files.lib.push(file);
+      filesObj.lib.push(file);
+    } else if (split[1] === "lib" && split.length === 4) {
+      filesObj.libSub.push(file);
     } else if (split[1] === "lib") {
-      files.libSub.push(file);
+      filesObj.libSubSub.push(file);
     } else if ((split[1] === "test" && split.length === 3)) {
-      files.test.push(file);
+      filesObj.test.push(file);
+    } else if ((split[1] === "test" && split.length === 4)) {
+      filesObj.testSub.push(file);
     } else {
-      files.testSub.push(file);
-    }
+      filesObj.testSubSub.push(file);
+    };
   };
 
   function readdir (directory) {
@@ -36,13 +40,15 @@
     };
   };
 
-  var fs      = require("fs");
-  var vm      = require("vm");
-  var files   = {
-    lib:     [],
-    libSub:  [],
-    test:    [],
-    testSub :[]
+  var fs       = require("fs");
+  var vm       = require("vm");
+  var filesObj = {
+    lib:        [],
+    libSub:     [],
+    libSubSub:  [],
+    test:       [],
+    testSub:    [],
+    testSubSub: []
   };
   var sandbox = vm.createContext(this);
 
@@ -50,12 +56,20 @@
     readdir(directory);
   });
 
-  [files.lib, files.libSub, files.test, files.testSub].forEach(function (files) {
+  var filesArr = [
+    filesObj.lib,
+    filesObj.libSub,
+    filesObj.libSubSub,
+    filesObj.test,
+    filesObj.testSub,
+    filesObj.testSubSub
+  ];
+
+  filesArr.forEach(function (files) {
     runFiles(files);
   });
 
   vm.runInContext("X_X.tests = X_X.stack.slice(0);", sandbox);
   vm.runInContext("X_X.runTests(X_X.stack);", sandbox);
-  // vm.runInContext("console.log(X_X.tests[0]);", sandbox);
   vm.runInContext("X_X.logTestResults();", sandbox);
 }());
