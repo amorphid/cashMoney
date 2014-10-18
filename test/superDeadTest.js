@@ -7,13 +7,13 @@ X_X("superDead", function () {
     X_X(superDead).equals(X_X);
   });
 
-  // X_X("throws error when called with 0 arguments",function () {
-  //   funktion = function () {  X_X() };
-  //   return X_X(funktion).shouldThrowError();
-  // });
+  X_X("throws error when called with 0 arguments",function () {
+    funktion = function () {  X_X() };
+    X_X(funktion).shouldThrowError();
+  });
 
-  // X_X("throws error when called with 3+ arguments",function () {
-  //   funktion = function () {  X_X(1, 2, 3) };
-  //   return X_X(funktion).shouldThrowError();
-  // });
+  X_X("throws error when called with 3+ arguments",function () {
+    funktion = function () {  X_X(1, 2, 3) };
+    X_X(funktion).shouldThrowError();
+  });
 });
