@@ -72,4 +72,5 @@
   vm.runInContext("X_X.tests = X_X.Stack.slice(0);", sandbox);
   vm.runInContext("X_X.runTests(X_X.Stack);", sandbox);
   vm.runInContext("X_X.logTestResults();", sandbox);
+  vm.runInContext("console.log(X_X.Test())", sandbox);
 }());
