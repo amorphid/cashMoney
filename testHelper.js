@@ -65,6 +65,35 @@
     filesObj.testSubSub
   ];
 
+
+  // this is starting to look a little hacky :)
+  // consider this a plea for refactoring in the near future!
+  vm.runInContext(
+    fs.readFileSync(
+      filesObj.lib.splice(
+        filesObj.lib.indexOf(
+          "./lib/superDead.js/"
+        ),
+        1
+      ).pop()
+    ),
+    sandbox
+  );
+
+  // this is starting to look REALLY hacky :P
+  // consider this a DEMAND for refactoring in the near future!!
+  vm.runInContext(
+    fs.readFileSync(
+      filesObj.libSub.splice(
+        filesObj.libSub.indexOf(
+          "./lib/superDead/Object.js"
+        ),
+        1
+      ).pop()
+    ),
+    sandbox
+  );
+
   filesArr.forEach(function (files) {
     runFiles(files);
   });
@@ -72,5 +101,5 @@
   vm.runInContext("X_X.tests = X_X.Stack.slice(0);", sandbox);
   vm.runInContext("X_X.runTests(X_X.Stack);", sandbox);
   vm.runInContext("X_X.logTestResults();", sandbox);
-  // vm.runInContext("console.log(X_X.Test())", sandbox);
+  // vm.runInContext("console.log(X_X)", sandbox);
 }());
