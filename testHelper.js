@@ -72,7 +72,7 @@
     fs.readFileSync(
       filesObj.lib.splice(
         filesObj.lib.indexOf(
-          "./lib/superDead.js/"
+          "./lib/cashMoney.js/"
         ),
         1
       ).pop()
@@ -86,7 +86,7 @@
     fs.readFileSync(
       filesObj.libSub.splice(
         filesObj.libSub.indexOf(
-          "./lib/superDead/Object.js"
+          "./lib/cashMoney/Object.js"
         ),
         1
       ).pop()
@@ -98,8 +98,8 @@
     runFiles(files);
   });
 
-  vm.runInContext("X_X.tests = X_X.Stack.slice(0);", sandbox);
-  vm.runInContext("X_X.runTests(X_X.Stack);", sandbox);
-  vm.runInContext("X_X.logTestResults();", sandbox);
-  // vm.runInContext("console.log(X_X)", sandbox);
+  vm.runInContext("$_$.tests = $_$.Stack.slice(0);", sandbox);
+  vm.runInContext("$_$.runTests($_$.Stack);", sandbox);
+  vm.runInContext("$_$.logTestResults();", sandbox);
+  // vm.runInContext("console.log($_$)", sandbox);
 }());
